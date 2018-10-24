@@ -188,7 +188,9 @@
     });
     $(".send").on("click",function(){
         data = [{name: $(".name").val() , link: $(".link").val(), data :[$("#test1").val(),$("#test2").val(),$("#test3").val(),$("#test4").val(),$("#test5").val(),$("#test6").val(),$("#test7").val(),$("#test8").val(),$("#test9").val(),$("#test10").val() ]}]
-        console.log(data)
+        $.post("/results", data,function(data){
+          console.log(data)
+        })
         });
 
 </script>

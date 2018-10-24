@@ -16,24 +16,24 @@
     </div>
     <div class="row">
         <div class="input-field col s6">
-            <input value="Name" id="first_name" type="text" class="validate">
+            <input value="Name" id="first_name" type="text" class="validate name">
             <label class="active" for="first_name2">Name</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s6">
-            <input value="link" id="picture" type="text" class="validate">
+            <input value="link" id="picture" type="text" class="validate link">
             <label class="active" for="first_name2">Link to picture(Required)</label>
         </div>
     </div>
     <div class ="row">
         <div class="col s6">
-            <h6>All answers are 0(Strongly disagree)-5(Strongly agree)</h6>
+            <h6>All answers are 1(Strongly disagree)-5(Strongly agree)</h6>
         </div>
     </div>
     <div class="row">
         <div class="col s6">
-            <p id="smalltext">Your mind is always buzzing with unexplored ideas and plans</p>
+            <p id="smalltext">Your mind is always buzzing with unexplored ideas and plans.</p>
             <select id="test1">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1</option>
@@ -46,8 +46,8 @@
     </div>
     <div class="row">
         <div class="col s6">
-            <p id="smalltext">Your mind is always buzzing with unexplored ideas and plans</p>
-            <select id="test1">
+            <p id="smalltext">Generally speaking, you rely more on your experience than your imagination.</p>
+            <select id="test2">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -59,8 +59,8 @@
     </div>
     <div class="row">
         <div class="col s6">
-            <p id="smalltext">Your mind is always buzzing with unexplored ideas and plans</p>
-            <select id="test1">
+            <p id="smalltext">You find it easy to stay relaxed and focused even when there is some pressure.</p>
+            <select id="test3">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -72,8 +72,8 @@
     </div>
     <div class="row">
         <div class="col s6">
-            <p id="smalltext">Your mind is always buzzing with unexplored ideas and plans</p>
-            <select id="test1">
+            <p id="smalltext">You rarely do something just out of sheer curiosity.</p>
+            <select id="test4">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -85,8 +85,8 @@
     </div>
     <div class="row">
         <div class="col s6">
-            <p id="smalltext">Your mind is always buzzing with unexplored ideas and plans</p>
-            <select id="test1">
+            <p id="smalltext">People can rarely upset you.</p>
+            <select id="test5">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -98,8 +98,8 @@
     </div>
     <div class="row">
         <div class="col s6">
-            <p id="smalltext">Your mind is always buzzing with unexplored ideas and plans</p>
-            <select id="test1">
+            <p id="smalltext">It is often difficult for you to relate to other people’s feelings.</p>
+            <select id="test6">
                 <option value="" disabled selected>Choose your option</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -107,6 +107,63 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <p id="smalltext">You rarely get carried away by fantasies and ideas.</p>
+            <select id="test7">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <p id="smalltext">In a discussion, truth should be more important than people’s sensitivities.</p>
+            <select id="test8">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <p id="smalltext">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
+            <select id="test9">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <p id="smalltext">You feel more energetic after spending time with a group of people.</p>
+            <select id="test10">
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6">
+            <a class="waves-effect waves-light btn send">Send Results</a>
         </div>
     </div>
 </div>
@@ -129,11 +186,10 @@
     $(document).ready(function(){
         $('select').formSelect();
     });
-    $(document).keypress(function(e) {
-        if(e.which == 13) {
-            console.log($("#test1").val());
-        }
-    });
+    $(".send").on("click",function(){
+        data = [{name: $(".name").val() , link: $(".link").val(), data :[$("#test1").val(),$("#test2").val(),$("#test3").val(),$("#test4").val(),$("#test5").val(),$("#test6").val(),$("#test7").val(),$("#test8").val(),$("#test9").val(),$("#test10").val() ]}]
+        console.log(data)
+        });
 
 </script>
 

@@ -112,7 +112,7 @@ friendsList = [{
     },
     {
         name: "sada",
-        photo : "sadad",
+        photo : "https://images.theconversation.com/files/38926/original/5cwx89t4-1389586191.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip",
         scores : [
             "2",
             "2",
@@ -128,7 +128,7 @@ friendsList = [{
     },
     {
         name: "a",
-        photo : "a",
+        photo : "https://images.theconversation.com/files/38926/original/5cwx89t4-1389586191.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip",
         scores : [
             "1",
             "1",
@@ -144,7 +144,7 @@ friendsList = [{
     },
     {
         name: "brenda pending",
-        photo : "kjhghj",
+        photo : "https://images.theconversation.com/files/38926/original/5cwx89t4-1389586191.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip",
         scores : [
             "3",
             "4",

@@ -16,6 +16,7 @@ app.post("/results", function(req, res){
         }
 
     }
+    friendsList.push(res.body)
     console.log(bestMatch)
     res.send(bestMatch).json(null)
 });

@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
 
@@ -167,7 +168,15 @@
         </div>
     </div>
 </div>
-
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h4>Best Match Is!?!</h4>
+        <p id="bestMatch"></p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
 
 
 
@@ -186,12 +195,21 @@
     $(document).ready(function(){
         $('select').formSelect();
     });
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
+    });
+    var data = {};
     $(".send").on("click",function(){
-        data = [{name: $(".name").val() , link: $(".link").val(), data :[$("#test1").val(),$("#test2").val(),$("#test3").val(),$("#test4").val(),$("#test5").val(),$("#test6").val(),$("#test7").val(),$("#test8").val(),$("#test9").val(),$("#test10").val() ]}]
-        $.post("/results", data,function(data){
-          console.log(data)
+        let instance = M.Modal.getInstance(".modal");
+        instance.open();
+        data = {"name" : $(".name").val().trim() , "photo" : $(".link").val().trim(), "scores" :[$("#test1").val().trim(),$("#test2").val().trim(),$("#test3").val().trim(),$("#test4").val().trim(),$("#test5").val().trim(),$("#test6").val().trim(),$("#test7").val().trim(),$("#test8").val().trim(),$("#test9").val().trim(),$("#test10").val().trim() ]}
+        console.log(data);
+        $.post("/results", data ,function(res){
+            console.log(res)
         })
         });
+
 
 </script>
 

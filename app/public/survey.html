@@ -162,21 +162,22 @@
             </select>
         </div>
     </div>
-    <div class="row">
-        <div class="col s6">
-            <a class="waves-effect waves-light btn send">Send Results</a>
-        </div>
-    </div>
-</div>
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <h4>Best Match Is!?!</h4>
-        <p id="bestMatch"></p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-</div>
+
+    <button class="btn-large waves-effect waves-light submitBtn modal-trigger send" type="submit" name="action" data-target="modal1">Submit
+            <i class="material-icons right"></i>
+          </button>
+
+    <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h1>Best Match :</h1>            
+                <h2 id="match"></h2>
+                <img id="matchImage">
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+          </div>
+
 
 
 
@@ -195,20 +196,20 @@
     $(document).ready(function(){
         $('select').formSelect();
     });
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.modal');
-        var instances = M.Modal.init(elems);
-    });
+    $(document).ready(function(){
+        $('.modal').modal();
+      });
     var data = {};
     $(".send").on("click",function(){
-        let instance = M.Modal.getInstance(".modal");
-        instance.open();
         data = {"name" : $(".name").val().trim() , "photo" : $(".link").val().trim(), "scores" :[$("#test1").val().trim(),$("#test2").val().trim(),$("#test3").val().trim(),$("#test4").val().trim(),$("#test5").val().trim(),$("#test6").val().trim(),$("#test7").val().trim(),$("#test8").val().trim(),$("#test9").val().trim(),$("#test10").val().trim() ]}
-        console.log(data);
         $.post("/results", data ,function(res){
             console.log(res)
+            $("#match").append(res.name)
+            $("#matchImage").attr("src",res.picture)
         })
-        });
+      });
+
+
 
 
 </script>

@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.static("public"))
+
 require("./routing/htmlRoutes")(app)
 require("./routing/apiRoutes")(app)
 

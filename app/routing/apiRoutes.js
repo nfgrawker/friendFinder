@@ -2,7 +2,9 @@ module.exports = function(app){
 app.get("/api/friends", function(req, res) {
   return res.json(friendsList);
 });
+
 app.post("/results", function(req, res){
+    let pusher = req.body
     let total = 10000;
     for(let i in friendsList){
         var diff = 0;
@@ -16,8 +18,8 @@ app.post("/results", function(req, res){
         }
 
     }
-    friendsList.push(req.body)
-    console.log(bestMatch)
-    res.send(bestMatch).json(null)
+    friendsList.push(pusher)
+    console.log(pusher)
+    res.send(bestMatch)
 });
 }

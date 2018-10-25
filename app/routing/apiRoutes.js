@@ -8,9 +8,8 @@ app.post("/results", function(req, res){
     let total = 10000;
     for(let i in friendsList){
         var diff = 0;
-        for(let j in friendsList[i]["scores"]){
+        for(let j in friendsList[i].scores){
         diff += Math.abs((parseInt(friendsList[i].scores[j])-parseInt(req.body.scores[j])))
-
         }
         if(diff < total){
             total = diff

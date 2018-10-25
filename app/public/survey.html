@@ -169,7 +169,7 @@
 
     <div id="modal1" class="modal">
             <div class="modal-content">
-                <h1>Best Match :</h1>            
+                <h1>Best Match :</h1>
                 <h2 id="match"></h2>
                 <img id="matchImage">
             </div>
@@ -204,7 +204,7 @@
         data = {"name" : $(".name").val().trim() , "photo" : $(".link").val().trim(), "scores" :[$("#test1").val().trim(),$("#test2").val().trim(),$("#test3").val().trim(),$("#test4").val().trim(),$("#test5").val().trim(),$("#test6").val().trim(),$("#test7").val().trim(),$("#test8").val().trim(),$("#test9").val().trim(),$("#test10").val().trim() ]}
         $.post("/results", data ,function(res){
             console.log(res)
-            $("#match").append(res.name)
+            $("#match").text(res.name)
             $("#matchImage").attr("src",res.picture)
         })
       });
